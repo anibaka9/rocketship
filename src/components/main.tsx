@@ -23,12 +23,6 @@ To read more about using these font, please visit the Next.js documentation:
 - App Directory: https://nextjs.org/docs/app/building-your-application/optimizing/fonts
 - Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
 **/
-import Image from "next/image";
-import Logo from "./logo.jpeg";
-import InterstellarTelescope from "./products-images/Interstellar Telescope.jpeg";
-import GravityBoots from "./products-images/Gravity Boots.jpeg";
-import InterplanetaryCommunicator from "./products-images/Interplanetary Communicator.jpeg";
-import InterstellarSurvivalKit from "./products-images/Interstellar Survival Kit.jpeg";
 import ProductsGrid from "./product-grid";
 
 export function Main() {

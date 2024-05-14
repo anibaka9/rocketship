@@ -6,7 +6,13 @@ export function Header() {
   return (
     <header className="bg-[#1e293b] py-4 px-6 flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <Image alt="Rocket" className="h-8 w-8" src={Logo} />
+        <Image
+          alt="Rocket"
+          className="h-8 w-8"
+          src={Logo}
+          height={32}
+          width={32}
+        />
         <h1 className="text-2xl font-bold">Interplanetary Delivery</h1>
       </div>
       <nav className="flex items-center gap-4">
