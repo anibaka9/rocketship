@@ -61,7 +61,7 @@ export function Login() {
           </form>
           <div className="mt-4 text-center">
             <p className="text-gray-400">
-              Don't have an account?
+              {"Don't have an account? "}
               <a className="text-[#4f46e5] hover:underline" href="#">
                 Register
               </a>

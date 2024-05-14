@@ -94,8 +94,9 @@ export function Main() {
                 3. Complete Your Order
               </h3>
               <p className="text-gray-400 mb-4">
-                Provide your payment information and confirm your order. We'll
-                blast off your items as soon as possible.
+                {
+                  "Provide your payment information and confirm your order. We'll blast off your items as soon as possible."
+                }
               </p>
             </div>
             <div>
