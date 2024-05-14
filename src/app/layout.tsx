@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Bricolage_Grotesque } from "next/font/google";
+import { Syne } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import "./styles.css";
+
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+
+const bricolage_grotesque = Bricolage_Grotesque({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-bricolage_grotesque",
+});
+const syne = Syne({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-syne",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +31,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={bricolage_grotesque.variable + " " + syne.variable}>
+        <div className="bg-[#0f172a] text-white min-h-screen flex flex-col">
+          <Header />
+          {children}
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }
