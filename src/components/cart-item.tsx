@@ -19,7 +19,12 @@ export const CartItem = ({
 }: CartItemProps) => {
   return (
     <div className="bg-[#1e293b] rounded-lg overflow-hidden">
-      <Image alt={alt} className="w-full h-48 object-cover" src={imageSrc} />
+      <Image
+        alt={alt}
+        className="w-full h-48 object-cover"
+        height={192}
+        src={imageSrc}
+      />
       <div className="p-4">
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="text-gray-400 mb-4">{description}</p>
