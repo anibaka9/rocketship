@@ -81,13 +81,13 @@ export function Header() {
         <Link className="hover:underline" href="/">
           Home
         </Link>
-        <Link className="hover:underline" href="/#products">
+        <Link className="hover:underline" href="/products">
           Products
         </Link>
-        <Link className="hover:underline" href="/#delivery">
+        <Link className="hover:underline" href="/delivery">
           Delivery
         </Link>
-        <Link className="hover:underline" href="/#about">
+        <Link className="hover:underline" href="/about">
           About
         </Link>
         <Link className="hover:underline" href="/contact">
