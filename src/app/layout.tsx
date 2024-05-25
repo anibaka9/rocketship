@@ -7,6 +7,7 @@ import "./styles.css";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { HeaderExample } from "@/components/header-example";
 
 const bricolage_grotesque = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={bricolage_grotesque.variable + " " + syne.variable}>
         <div className="bg-[#0f172a] text-white min-h-screen flex flex-col">
           <Header />
+          {/* <HeaderExample /> */}
           {children}
           <Footer />
         </div>
