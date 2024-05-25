@@ -7,7 +7,6 @@ import "./styles.css";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { HeaderExample } from "@/components/header-example";
 
 const bricolage_grotesque = Bricolage_Grotesque({
   subsets: ["latin"],
