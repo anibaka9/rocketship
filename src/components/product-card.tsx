@@ -24,6 +24,7 @@ const ProductCard = ({
         className="w-full h-48 object-cover"
         src={imageSrc}
         priority={priority}
+        placeholder="blur"
       />
       <div className="p-4 flex flex-col flex-1 justify-between">
         <div>
