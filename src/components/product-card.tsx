@@ -6,6 +6,7 @@ type ProductCardProps = {
   title: string;
   description: string;
   price: string;
+  priority?: boolean;
 };
 
 const ProductCard = ({
@@ -14,10 +15,16 @@ const ProductCard = ({
   title,
   description,
   price,
+  priority,
 }: ProductCardProps) => {
   return (
     <div className="bg-[#1e293b] rounded-lg overflow-hidden flex flex-col">
-      <Image alt={alt} className="w-full h-48 object-cover" src={imageSrc} />
+      <Image
+        alt={alt}
+        className="w-full h-48 object-cover"
+        src={imageSrc}
+        priority={priority}
+      />
       <div className="p-4 flex flex-col flex-1 justify-between">
         <div>
           <h3 className="text-xl font-bold mb-2">{title}</h3>

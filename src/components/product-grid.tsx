@@ -46,6 +46,7 @@ const ProductsGrid = () => {
           title={product.title}
           description={product.description}
           price={product.price}
+          priority={index === 0}
         />
       ))}
     </div>
