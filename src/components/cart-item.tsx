@@ -1,44 +1,39 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import placeholderImage from "@/components/products-images/Interplanetary Communicator.jpeg";
+import { ChangeQuantity } from "./change-quantity";
 
 type CartItemProps = {
-  alt: string;
-  imageSrc: StaticImageData;
-  title: string;
+  id: number;
+  image: string | null;
+  name: string;
   description: string;
-  price: string;
-  quantity: number;
+  price: number;
+  cartQuantity: number;
 };
 
 export const CartItem = ({
-  alt,
-  imageSrc,
-  title,
+  id,
+  image,
+  name,
   description,
   price,
-  quantity,
+  cartQuantity,
 }: CartItemProps) => {
   return (
     <div className="bg-[#1e293b] rounded-lg overflow-hidden">
       <Image
-        alt={alt}
+        alt={name}
         className="w-full h-48 object-cover"
-        height={192}
-        src={imageSrc}
+        height={512}
+        width={512}
+        src={image ?? placeholderImage}
       />
       <div className="p-4">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <h3 className="text-xl font-bold mb-2">{name}</h3>
         <p className="text-gray-400 mb-4">{description}</p>
         <div className="flex items-center justify-between">
           <p className="text-2xl font-bold">{price}</p>
-          <div className="flex items-center gap-2">
-            <button className="bg-[#4f46e5] text-white px-2 py-1 rounded-md hover:bg-[#4338ca]">
-              -
-            </button>
-            <span>{quantity}</span>
-            <button className="bg-[#4f46e5] text-white px-2 py-1 rounded-md hover:bg-[#4338ca]">
-              +
-            </button>
-          </div>
+          <ChangeQuantity cartQuantity={cartQuantity} id={id} />
         </div>
       </div>
     </div>

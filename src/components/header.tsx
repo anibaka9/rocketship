@@ -7,8 +7,10 @@ import {
   Sheet,
   SheetClose,
 } from "@/components/ui/sheet";
+import { getCartStat } from "@/lib/getCartStat";
 
-export function Header() {
+export async function Header() {
+  const cartStat = await getCartStat();
   return (
     <header className="bg-[#1e293b] py-4 px-6 flex items-center justify-between gap-4">
       <Link className="flex items-center gap-2" href="/">
@@ -58,20 +60,25 @@ export function Header() {
             <div className="flex items-center gap-2">
               <SheetClose asChild>
                 <Link
-                  className="bg-[#4f46e5] text-white px-4 py-2 rounded-md hover:bg-[#4338ca]"
+                  className="bg-[#4f46e5] text-white px-4 py-2 rounded-md hover:bg-[#4338ca] relative"
                   href="/cart"
                 >
                   Cart
+                  {cartStat.total > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                      {cartStat.total}
+                    </span>
+                  )}
                 </Link>
               </SheetClose>
-              <SheetClose asChild>
+              {/* <SheetClose asChild>
                 <Link
                   className="bg-[#4f46e5] text-white px-4 py-2 rounded-md hover:bg-[#4338ca]"
                   href="/login"
                 >
                   Login
                 </Link>
-              </SheetClose>
+              </SheetClose> */}
             </div>
           </nav>
         </SheetContent>
@@ -96,17 +103,22 @@ export function Header() {
       </nav>
       <div className="hidden md:flex items-center gap-2">
         <Link
-          className="bg-[#4f46e5] text-white px-4 py-2 rounded-md hover:bg-[#4338ca]"
+          className="bg-[#4f46e5] text-white px-4 py-2 rounded-md hover:bg-[#4338ca] relative"
           href="/cart"
         >
           Cart
+          {cartStat.total > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+              {cartStat.total}
+            </span>
+          )}
         </Link>
-        <Link
+        {/* <Link
           className="bg-[#4f46e5] text-white px-4 py-2 rounded-md hover:bg-[#4338ca]"
           href="/login"
         >
           Login
-        </Link>
+        </Link> */}
       </div>
     </header>
   );
