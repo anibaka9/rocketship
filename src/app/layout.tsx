@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import { Bricolage_Grotesque } from "next/font/google";
 import { Syne } from "next/font/google";
 
@@ -37,6 +39,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );
