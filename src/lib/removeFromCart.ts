@@ -4,21 +4,23 @@ import { turso } from "@/db";
 import { revalidateTag } from "next/cache";
 
 export async function removeFromCart(productId: number) {
-  const quantity = (
-    await turso.execute(`
-    SELECT quantity FROM cart WHERE product_id =  ${productId};`)
-  ).rows[0]?.quantity as number | null | undefined;
+  const result = await turso.execute(`
+    UPDATE cart
+    SET quantity = CASE
+      WHEN quantity > 1 THEN quantity - 1
+      ELSE 0
+    END
+    WHERE product_id = ${productId}
+    RETURNING quantity
+  `);
 
-  if (!quantity || quantity < 1) {
-    return;
+  if (result.rows[0]?.quantity === 0) {
+    await turso.execute(`
+      DELETE FROM cart
+      WHERE product_id = ${productId}
+    `);
   }
-  if (quantity === 1) {
-    await turso.execute(`DELETE FROM cart WHERE product_id = ${productId}`);
-  } else {
-    await turso.execute(
-      `UPDATE cart SET quantity = ${quantity - 1} WHERE product_id = ${productId}`,
-    );
-  }
+
   revalidateTag("products");
   revalidateTag("cart");
 }

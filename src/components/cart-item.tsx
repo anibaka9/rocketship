@@ -1,6 +1,7 @@
 import Image from "next/image";
 import placeholderImage from "@/components/products-images/Interplanetary Communicator.jpeg";
 import { ChangeQuantity } from "./change-quantity";
+import { CartChangeQuantity } from "./cart-change-quantity";
 
 type CartItemProps = {
   id: number;
@@ -33,7 +34,7 @@ export const CartItem = ({
         <p className="text-gray-400 mb-4">{description}</p>
         <div className="flex items-center justify-between">
           <p className="text-2xl font-bold">{price}</p>
-          <ChangeQuantity cartQuantity={cartQuantity} id={id} />
+          <CartChangeQuantity cartQuantity={cartQuantity} id={id} />
         </div>
       </div>
     </div>

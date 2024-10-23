@@ -3,13 +3,13 @@
 import { addToCart } from "@/lib/addToCart";
 
 type AddToCartProps = {
-  id: number;
+  handleAddToCartAction: () => Promise<void>;
 };
 
-export function AddToCart({ id }: AddToCartProps) {
+export function AddToCart({ handleAddToCartAction }: AddToCartProps) {
   return (
     <button
-      onClick={() => addToCart(id)}
+      onClick={handleAddToCartAction}
       className="bg-[#4f46e5] text-white px-4 py-2 rounded-md hover:bg-[#4338ca]"
     >
       Add to Cart

@@ -7,7 +7,7 @@ export const getCartStat = unstable_cache(
     return (
       await turso.execute(`
         SELECT
-              count(*) as total, sum(p.price * c.quantity) as total_price
+              count(*) as total, round(sum(p.price * c.quantity), 2) as total_price
             FROM cart c JOIN products p ON p.id = c.product_id
   `)
     ).rows[0] as unknown as TCartStat;

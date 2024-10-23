@@ -27,8 +27,13 @@ const Cart = async () => {
             ))}
           </div>
           <div className="mt-6 flex justify-between items-center">
-            <p className="text-2xl font-bold">Total: ${stat.total_price}</p>
-            <button className="bg-[#4f46e5] text-white px-4 py-2 rounded-md hover:bg-[#4338ca]">
+            <p className="text-2xl font-bold">
+              Total: ${stat.total_price ?? 0}
+            </p>
+            <button
+              disabled={stat.total === 0}
+              className="bg-[#4f46e5] text-white px-4 py-2 rounded-md hover:bg-[#4338ca] disabled:bg-gray-400 disabled:cursor-not-allowed"
+            >
               Checkout
             </button>
           </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import placeholderImage from "@/components/products-images/Interplanetary Communicator.jpeg";
 import { AddToCart } from "./add-to-cart";
 import { ChangeQuantity } from "./change-quantity";
+import { AddAndUpdateQuantity } from "./add-and-update-quantity";
 
 type ProductCardProps = {
   id: number;
@@ -39,11 +40,7 @@ const ProductCard = ({
         </div>
         <div className="flex items-center justify-between">
           <p className="text-2xl font-bold">{price}</p>
-          {cartQuantity ? (
-            <ChangeQuantity cartQuantity={cartQuantity} id={id} />
-          ) : (
-            <AddToCart id={id} />
-          )}
+          <AddAndUpdateQuantity cartQuantity={cartQuantity} id={id} />
         </div>
       </div>
     </div>
